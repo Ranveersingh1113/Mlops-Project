@@ -1,0 +1,11 @@
+.venv
+.git
+__pycache__
+tests
+poster
+docs
+data
+mlruns
+mlflow.db
+gha-creds-*.json
+*.log
