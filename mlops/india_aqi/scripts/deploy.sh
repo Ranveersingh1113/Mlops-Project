@@ -19,11 +19,14 @@ gcloud storage cp data/delhi.csv "gs://${GCP_BUCKET}/data/${RUN_ID}.csv"
 EXISTING=$(gcloud run services list --region "$GCP_REGION" --filter="metadata.name=${GCP_SERVICE}" --format='value(metadata.name)')
 if [[ -n "$EXISTING" ]]; then
   gcloud run services describe "$GCP_SERVICE" --region "$GCP_REGION" --format=json > before-rollout.json
+  TRAFFIC_ARGS=(--no-traffic)
 else
   printf '{"status":{"traffic":[]}}\n' > before-rollout.json
+  # Cloud Run requires initial traffic on a new private service.
+  TRAFFIC_ARGS=()
 fi
 gcloud run deploy "$GCP_SERVICE" --image "$IMAGE_DIGEST" --region "$GCP_REGION" \
-  --service-account "$GCP_RUNTIME_SA" --no-allow-unauthenticated --no-traffic --tag candidate \
+  --service-account "$GCP_RUNTIME_SA" --no-allow-unauthenticated "${TRAFFIC_ARGS[@]}" --tag candidate \
   --min-instances 0 --max 3 --max-instances 3 --concurrency 8 --cpu 1 --memory 512Mi --port 8080 --quiet
 gcloud run services describe "$GCP_SERVICE" --region "$GCP_REGION" --format=json > candidate-service.json
 SERVICE_URL=$(python -c 'import json; print(json.load(open("candidate-service.json"))["status"]["url"])')

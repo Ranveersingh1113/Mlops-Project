@@ -38,7 +38,7 @@ The current private repository's GitHub plan rejected required reviewers (HTTP 4
 
 ## Release
 
-Manually dispatch **Delhi AQI MLOps**, choose `deploy=true`, then approve the `aqi-demo` environment. Failed checks prevent deployment. Candidate is deployed privately with a tagged URL, no intended production traffic; health smoke-test confirms exact run ID. The script records approver and prior traffic in versioned Cloud Storage before switching to the candidate revision. First deployment has no previous production revision; private access limits exposure during bootstrap. Monitor CLI and training do not deploy.
+Manually dispatch **Delhi AQI MLOps**, choose `deploy=true`, then approve the `aqi-demo` environment if reviewer protection is available. Failed checks prevent deployment. For an existing service, a private tagged candidate receives no production traffic; health smoke-test confirms exact run ID before switching. The script records the dispatch actor and prior traffic in versioned Cloud Storage before switching. Cloud Run rejects `--no-traffic` for a new service, so first deployment starts serving privately before smoke verification; there is no previous production revision. Monitor CLI and training do not deploy.
 
 Cloud Run settings: 1 CPU, 512 MiB, scale-to-zero, service-level maximum 3 (`--max`), revision maximum 3 (`--max-instances`), concurrency 8. Tagged candidates can add capacity outside the production traffic split. Maximum instances is a capacity control, not a hard billing cap. API schema rejects invalid AQI/gaps; private service IAM limits callers. [Scaling reference](https://docs.cloud.google.com/run/docs/configuring/max-instances). For dashboard access:
 
