@@ -1,6 +1,22 @@
-# Verification evidence (2026-10-06)
+# Verification evidence
 
-Implemented project. Local Docker verification succeeded on 2026-10-27; live cloud deployment remains pending.
+Cloud Run deployment, full GitHub OIDC CI/CD, authenticated HTTP smoke, rollback and restoration succeeded on 2026-10-27. The fresh-data follow-up also deployed successfully and passed actual Cloud Run and browser verification.
+
+## Practical follow-up (2026-10-27)
+
+Final follow-up release: https://github.com/Ranveersingh1113/delhi-aqi-mlops/actions/runs/40516989515 . Active revision `delhi-aqi-00006-leh`, model run `935c1f3f6a8a4b21a446a205741af814`. Authenticated Cloud Run `/observations/latest` fetched seven current official bulletins; `/predict` issued AQI 222.04 for 2026-10-28. The actual cloud dashboard journey also passed; screenshot `dashboard-cloud.png`. See `deployment-evidence.json`, `model-comparison.json`, `forecast-2026-10-28.json` and `operational-status.json`. Original rollout and follow-up release both succeeded; failed/queued intermediate attempts were not treated as successful evidence.
+
+- Suite: 19 passed; one upstream Starlette deprecation warning.
+- Official live source: seven CPCB bulletins, 2026-10-21–2026-10-27, successfully parsed in both Python and the actual Linux Docker container. Last AQI: 197. Dates, city, category, station counts and SHA-256 verified.
+- Real browser flow: Load latest CPCB data -> form populated with seven current observations -> Predict AQI -> target 2026-10-28, forest prediction 222.04. Screenshot: `dashboard-fresh-local.png`.
+- Operational capture: future-issued forecast persisted with provenance; `awaiting_actuals`, operational MAE null. No invented observed target or production score.
+- Model comparison: forest validation MAE 32.5286 beats histogram gradient boosting 33.3544. New independent 2025 backtest has 204 complete windows: forest MAE 30.0427, persistence 29.6765. Original gain does not generalize; forest retained as an experimental demonstration and no alternative promoted.
+- Initial full release passed: https://github.com/Ranveersingh1113/delhi-aqi-mlops/actions/runs/40514155984 . Revision `delhi-aqi-00002-ves`, model run `6a90206998084a58a45581cb6007635b`.
+- Actual rollback to `delhi-aqi-00001-vec` passed health/model/forecast/dashboard smoke, followed by restoration to `delhi-aqi-00002-ves` and another successful smoke.
+- Verified service/revision maxima 3, concurrency 8, CPU 1, memory 512 MiB, private IAM, actual forecast logs and 30-day log retention.
+- GitHub reviewer protection unavailable on current private-repository plan (HTTP 422); default-branch environment restriction and repository/branch/workflow/manual-dispatch-bound OIDC are configured. Audit identifies original and triggering actor plus run attempt.
+- Fresh review found a UTC/India date mismatch in the capture test; a frozen 20:00 UTC case reproduced it, then the India-date fix passed. Source fallback, holdout isolation and serving dependency wiring were reviewed.
+- Updated A3 vector poster rendered and visually inspected with no clipping.
 
 ## Deployment preflight (2026-10-27)
 

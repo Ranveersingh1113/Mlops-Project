@@ -1,0 +1,33 @@
+{
+  "selected_by_validation": "RandomForestRegressor",
+  "validation": {
+    "RandomForestRegressor": {
+      "mae": 32.52857165194255,
+      "rmse": 45.177823175122256
+    },
+    "HistGradientBoostingRegressor": {
+      "mae": 33.35435539730303,
+      "rmse": 45.68116656519692
+    }
+  },
+  "training_end": "2020-09-04",
+  "validation_end": "2022-05-03",
+  "source_sha256": "3bb4435d91457dca820e1189357446849235bcce18e4092267a5c6fc1e9fd61d",
+  "holdout_sha256": "e3112e31bdd70e0b06f5197dee15fa9ed0cf0ea40aff51818f12d4ff4829ea74",
+  "new_holdout": {
+    "n": 204,
+    "start": "2025-01-09",
+    "end": "2025-07-31",
+    "model": {
+      "mae": 30.042719399163637,
+      "rmse": 39.423473617522966
+    },
+    "persistence": {
+      "mae": 29.676470588235293,
+      "rmse": 40.21364513323756
+    },
+    "beats_persistence": false
+  },
+  "deployment_action": "Retain deployed forest; comparison does not promote a model.",
+  "note": "Backtest, not production monitoring. Repeated tuning against the new holdout invalidates its independence."
+}

@@ -1,0 +1,10 @@
+{
+  "target_date": "2026-10-28",
+  "aqi": 222.04,
+  "model_version": "935c1f3f6a8a4b21a446a205741af814",
+  "issued_at": "2026-10-27T14:09:40.573993+00:00",
+  "historical_replay": false,
+  "input_age_days": 0,
+  "last_aqi": 197.0,
+  "note": "City-average forecast; historical accuracy does not guarantee future accuracy."
+}

@@ -46,7 +46,13 @@ Additional comparison (`uv run python compare_models.py`): forest validation MAE
 
 ## Deployed instance
 
-Cloud Run deployed in Mumbai (`asia-south1`) on 2026-10-27. [Private source repository](https://github.com/Ranveersingh1113/delhi-aqi-mlops); [successful CI/CD release](https://github.com/Ranveersingh1113/delhi-aqi-mlops/actions/runs/40514155984). Actual cloud health/model/forecast/dashboard smoke passed, followed by a verified rollback and restoration. The service requires Google Cloud IAM access. Use `gcloud run services proxy delhi-aqi --region asia-south1 --project gen-lang-client-0903575793 --port 8017` and open http://127.0.0.1:8017.
+Cloud Run deployed in Mumbai (`asia-south1`) on 2026-10-27. [Private source repository](https://github.com/Ranveersingh1113/delhi-aqi-mlops); [successful fresh-data CI/CD release](https://github.com/Ranveersingh1113/delhi-aqi-mlops/actions/runs/40516989515). Actual cloud health/model/forecast/dashboard smoke and fresh CPCB ingestion passed, together with an earlier verified rollback and restoration. The service requires Google Cloud IAM access. Use `gcloud run services proxy delhi-aqi --region asia-south1 --project gen-lang-client-0903575793 --port 8017` and open http://127.0.0.1:8017. On this Windows installation, if `gcloud` is outside PATH:
+
+```powershell
+& "$env:LOCALAPPDATA\Google\Cloud SDK\google-cloud-sdk\bin\gcloud.cmd" run services proxy delhi-aqi --region asia-south1 --project gen-lang-client-0903575793 --port 8017
+```
+
+Active verified revision: `delhi-aqi-00006-leh`; model run: `935c1f3f6a8a4b21a446a205741af814`. See [deployment evidence](docs/deployment-evidence.json) and [cloud dashboard screenshot](docs/dashboard-cloud.png). Forecast captured on 2026-10-27 for 2026-10-28: AQI 222.04, with operational accuracy explicitly pending the future actual observation.
 
 Resources: Artifact Registry `aqi-models`, Cloud Run `delhi-aqi`, versioned bucket `gs://gen-lang-client-0903575793-aqi-artifacts`. Request-based serving scales to zero with service/revision maxima 3; this is not a hard spending cap. GitHub OIDC is restricted to the private repository, default branch `codex/deploy`, deployment workflow and manual dispatch. The current GitHub plan rejected independent required reviewers; a release is manually dispatched with branch restrictions and actor audit.
 

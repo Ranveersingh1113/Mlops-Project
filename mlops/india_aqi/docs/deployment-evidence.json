@@ -1,0 +1,38 @@
+{
+  "verified_at": "2026-10-27T14:10:34.282499+00:00",
+  "project": "gen-lang-client-0903575793",
+  "region": "asia-south1",
+  "service_url": "https://delhi-aqi-ea5af7nx3q-el.a.run.app",
+  "active_traffic": [
+    {
+      "percent": 100,
+      "revisionName": "delhi-aqi-00006-leh",
+      "tag": "candidate",
+      "url": "https://candidate---delhi-aqi-ea5af7nx3q-el.a.run.app"
+    }
+  ],
+  "private_iam_verified": true,
+  "service_max_instances": 3,
+  "revision_max_instances": 3,
+  "concurrency": 8,
+  "cpu": 1,
+  "memory_mib": 512,
+  "forecast_log_samples": 5,
+  "log_retention_days": 30,
+  "artifact_bucket": {
+    "name": "gen-lang-client-0903575793-aqi-artifacts",
+    "location": "ASIA-SOUTH1",
+    "versioning_enabled": true,
+    "uniform_bucket_level_access": true
+  },
+  "rollback_demonstration": {
+    "verified_on": "2026-10-27",
+    "from_revision": "delhi-aqi-00002-ves",
+    "to_revision": "delhi-aqi-00001-vec",
+    "rollback_smoke_passed": true,
+    "restored_revision": "delhi-aqi-00002-ves",
+    "restoration_smoke_passed": true
+  },
+  "successful_initial_cicd": "https://github.com/Ranveersingh1113/delhi-aqi-mlops/actions/runs/40514155984",
+  "successful_followup_cicd": "https://github.com/Ranveersingh1113/delhi-aqi-mlops/actions/runs/40516989515"
+}

@@ -16,9 +16,9 @@ Capture issued current forecasts and later join observed targets for operational
 
 1. [x] Recover Docker, build/smoke the actual container, reauthenticate GCP and verify billing. Local tests: 13 pass after bootstrap regression.
 2. [x] Create cloud resources and deploy owner-bootstrap private revision. Actual cloud health/model/predict/dashboard smoke passed. Record bootstrap evidence in the artifact bucket.
-3. [ ] Finish GitHub OIDC rollout, verify service version, demonstrate rollback/restoration, record logs and scaling settings.
-4. [ ] Add tested official bulletin ingestion and fresh-input dashboard flow.
-5. [ ] Compare one alternative model with validation-only selection and document actual results.
-6. [ ] Demonstrate monitoring with captured evidence, publish final changes and update poster/presentation.
+3. [x] Finish GitHub OIDC rollout, verify service version, demonstrate rollback/restoration, record logs and scaling settings.
+4. [x] Add tested official bulletin ingestion and fresh-input dashboard flow. Real seven-day source fetch and actual Docker/browser forecast passed.
+5. [x] Compare one alternative model with validation-only selection and document actual results. Forest retained; 2025 holdout does not beat persistence. Ruling: disclose this limitation, retain experimental status, do not tune against the new holdout.
+6. [x] Demonstrate monitoring with captured evidence, publish final changes and update poster/presentation. Follow-up CI/CD run 40516989515 succeeded. Actual Cloud Run source fetch, future forecast capture and browser journey passed on revision `delhi-aqi-00006-leh`, model `935c1f3f6a8a4b21a446a205741af814`. Operational MAE remains pending until 2026-10-28 actuals arrive; evidence is stored in versioned Cloud Storage. Poster/PDF rendered and inspected.
 
 Review: bootstrap/update handling cleared. Rerun actor attribution gap reproduced with a failing test, fixed by recording original and triggering actors plus run attempt; suite 13 passes. Original first dispatch can finish safely because dispatcher and triggering actor are the same.

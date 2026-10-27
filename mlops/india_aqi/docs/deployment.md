@@ -1,6 +1,6 @@
 # Cloud deployment and rollback
 
-Status: configuration/runbook supplied. A live GCP deployment must be performed and verified in the owner's account before claiming cloud marks.
+Status: live private Cloud Run deployment and full GitHub OIDC CI/CD verified on 2026-10-27. Fresh CPCB ingestion, actual API/browser forecasts, rollback/restoration, logs and scaling settings passed verification. See `validation.md` and `deployment-evidence.json`; final release: https://github.com/Ranveersingh1113/delhi-aqi-mlops/actions/runs/40516989515 .
 
 ## One-time setup
 
@@ -32,7 +32,7 @@ Runtime needs no application resource permissions: the model is inside the image
 
 Configure [GitHub Workload Identity Federation](https://github.com/google-github-actions/auth#workload-identity-federation-through-a-service-account). Trust only your specific repository and default branch; bind `roles/iam.workloadIdentityUser` on `aqi-deploy` to that federated principal set. Use repository owner/repository IDs where possible to prevent name-reuse attacks. No exported service-account key needed.
 
-Create GitHub environment `aqi-demo`, require reviewers, restrict it to default branch. Set its variables: `GCP_PROJECT_ID`, `GCP_REGION`, `GCP_ARTIFACT_REPO`, `GCP_BUCKET`, `GCP_DEPLOY_SA`, `GCP_RUNTIME_SA`, `GCP_WIF_PROVIDER`. Workflow checks the repository's configured default branch. Protect workflow changes with code review.
+Create GitHub environment `aqi-demo`, require reviewers where supported, restrict it to default branch. Set its variables: `GCP_PROJECT_ID`, `GCP_REGION`, `GCP_ARTIFACT_REPO`, `GCP_BUCKET`, `GCP_DEPLOY_SA`, `GCP_RUNTIME_SA`, `GCP_WIF_PROVIDER`. Workflow checks the repository's configured default branch. Protect workflow changes with code review.
 
 The current private repository's GitHub plan rejected required reviewers (HTTP 422). Deployment therefore uses explicit manual workflow dispatch on the default branch, with OIDC restricted to this repository and branch. There is no separate reviewer gate on this plan; the audit records dispatch without claiming reviewer approval. Upgrade the plan or configure supported protection before requiring independent approval.
 
