@@ -21,7 +21,7 @@ uv run python pipeline.py train
 uv run uvicorn app:app --host 127.0.0.1 --port 8015
 ```
 
-Open http://127.0.0.1:8015. Prefilled example uses historical observations ending 2023-12-31 and predicts 2024-01-01. It is clearly labeled replay. For a current forecast, manually supply seven consecutive recent daily city AQI values. There is no live-data integration.
+Open http://127.0.0.1:8015. The prefilled historical example ends 2023-12-31. Click **Load latest CPCB data**, then **Predict AQI**, to fetch seven verified official daily bulletins and forecast the following day. Missing or changed source data produces an explicit error; manual entry remains available. CPCB's bulletin is a daily city aggregate published at 4 PM, rather than an instantaneous reading.
 
 In a second terminal:
 
@@ -42,7 +42,30 @@ Features: seven lags (latest first), seven-day mean/std, target month and weekda
 
 Recorded first run: candidate MAE **31.09**, RMSE **41.29**; persistence MAE **31.61**, RMSE **43.48**, on 607 test days. Improvement is small (~1.6% MAE), not a claim of production-grade forecasting. See [model card](docs/model-card.md) and generated `report.json` for seasonal/extreme-event results. Always rerun training to obtain current evidence.
 
+Additional comparison (`uv run python compare_models.py`): forest validation MAE **32.53**, histogram gradient boosting **33.35**. Validation retains the forest. On 204 separately sourced 2025 backtest days, forest MAE **30.04** vs persistence **29.68**; the original improvement does not generalize to this period. Comparison logs to MLflow and does not automatically promote a model. Treat current predictions as experimental and compare them with the last observed AQI.
+
+## Deployed instance
+
+Cloud Run deployed in Mumbai (`asia-south1`) on 2026-10-27. [Private source repository](https://github.com/Ranveersingh1113/delhi-aqi-mlops); [successful CI/CD release](https://github.com/Ranveersingh1113/delhi-aqi-mlops/actions/runs/40514155984). Actual cloud health/model/forecast/dashboard smoke passed, followed by a verified rollback and restoration. The service requires Google Cloud IAM access. Use `gcloud run services proxy delhi-aqi --region asia-south1 --project gen-lang-client-0903575793 --port 8017` and open http://127.0.0.1:8017.
+
+Resources: Artifact Registry `aqi-models`, Cloud Run `delhi-aqi`, versioned bucket `gs://gen-lang-client-0903575793-aqi-artifacts`. Request-based serving scales to zero with service/revision maxima 3; this is not a hard spending cap. GitHub OIDC is restricted to the private repository, default branch `codex/deploy`, deployment workflow and manual dispatch. The current GitHub plan rejected independent required reviewers; a release is manually dispatched with branch restrictions and actor audit.
+
 ## Monitoring
+
+Capture a genuine future forecast (through the authenticated proxy for Cloud Run):
+
+```powershell
+uv run python scripts/capture_forecast.py http://127.0.0.1:8017 --output-dir artifacts/operational/demo
+```
+
+This writes the deployed report, source provenance, forecast, operational CSV and an explicit `awaiting_actuals` status with no invented MAE. Use a new output directory per capture. After the target day's bulletin appears, export actuals and evaluate:
+
+```powershell
+uv run python observations.py --csv artifacts/latest-actuals.csv
+uv run python monitor.py --run-dir artifacts/operational/demo --predictions artifacts/operational/demo/predictions.csv --actuals artifacts/latest-actuals.csv
+```
+
+The recent-actuals export covers seven days; archive/join older actuals separately for longer evaluations. A single matched day is insufficient for drift/error alerts; at least 30 matches are required. Forecasts already appear as structured Cloud Logging events, including input history and issuance time. Captures with historical replay, late issuance or inconsistent model versions fail explicitly.
 
 `monitor.py` joins prediction dates to actual AQI, reports MAE/RMSE, and compares latest input AQI histograms with training using PSI. PSI > 0.2 or MAE > 1.25 times test MAE flags review; 30 matched samples required before alerting. These are documented heuristics, not statistical guarantees. Drift can be seasonal without error degradation.
 

@@ -1,5 +1,6 @@
 """Exercise bootstrap and update rollouts through the real shell script."""
 import os
+import json
 from pathlib import Path
 import shutil
 import subprocess
@@ -47,6 +48,8 @@ esac
                  'GCP_DEPLOY_SA', 'GCP_RUNTIME_SA', 'GITHUB_SHA', 'GITHUB_RUN_NUMBER', 'GITHUB_ACTOR'):
         env[name] = 'test'
     env['GCP_SERVICE'] = 'delhi-aqi'
+    env['GITHUB_TRIGGERING_ACTOR'] = 'rerun-operator'
+    env['GITHUB_RUN_ATTEMPT'] = '2'
     script = Path(__file__).resolve().parents[1] / 'scripts/deploy.sh'
     launcher = 'curl() { bash "$FAKE_BIN/curl" "$@"; }; export -f curl; source "$1"'
     result = subprocess.run([str(bash), '-c', launcher, 'test-deploy', script.as_posix()], cwd=tmp_path, env=env,
@@ -58,3 +61,7 @@ esac
     audit_upload = next(i for i, line in enumerate(trace) if line.startswith('storage cp deployment-audit.json'))
     switch = next(i for i, line in enumerate(trace) if line.startswith('run services update-traffic'))
     assert audit_upload < switch
+    audit = json.loads((tmp_path / 'deployment-audit.json').read_text())
+    assert audit['GITHUB_ACTOR'] == 'test'
+    assert audit['GITHUB_TRIGGERING_ACTOR'] == 'rerun-operator'
+    assert audit['GITHUB_RUN_ATTEMPT'] == '2'

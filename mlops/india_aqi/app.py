@@ -15,8 +15,10 @@ from fastapi import FastAPI, HTTPException
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import FileResponse, JSONResponse
 from pydantic import BaseModel, Field, model_validator
+from pypdf.errors import PyPdfError
 
 from pipeline import ROOT, features
+from observations import latest_history
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("aqi")
@@ -135,9 +137,20 @@ def model_report():
     return app.state.report
 
 
+@app.get("/observations/latest")
+def recent_observations():
+    try:
+        result = latest_history()
+    except (OSError, ValueError, PyPdfError) as exc:
+        logger.error(json.dumps({"event": "source_fetch_failed", "error": str(exc)}))
+        raise HTTPException(503, "CPCB observations unavailable; retry later or enter seven verified daily readings manually") from exc
+    logger.info(json.dumps({"event": "observations_loaded", "sources": result["sources"]}))
+    return result
+
+
 @app.post("/predict")
 def forecast(data: ForecastInput):
     require_model()
     result = predict(data, app.state.model, app.state.report)
-    logger.info(json.dumps({"event": "forecast", **result}))
+    logger.info(json.dumps({"event": "forecast", "history": data.model_dump(mode="json")["history"], **result}))
     return result

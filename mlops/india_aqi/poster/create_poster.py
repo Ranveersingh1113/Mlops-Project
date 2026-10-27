@@ -84,7 +84,7 @@ def node(x, y, number, title, caption):
 
 box(0, 0, W, H, PAPER, 0)
 box(0, 0, W, 193, NAVY, 0)
-text(44, 42, "MLOps PROJECT  /  INDIA  /  DESIGN POSTER", 13, "#9EE0E1", True)
+text(44, 42, "MLOps PROJECT  /  INDIA  /  DEPLOYED 27 OCT 2026", 13, "#9EE0E1", True)
 text(44, 101, "DELHI AQI", 53, "#FFFFFF", True)
 text(44, 157, "FORECASTING", 53, "#FFFFFF", True)
 text(635, 85, "Tomorrow's air quality.", 22, "#FFFFFF", True)
@@ -95,9 +95,9 @@ text(62, 240, "PRACTICAL PURPOSE", 13, TEAL, True)
 paragraph(62, 269, "Predict next-day city AQI to support awareness and planning around pollution trends.", 400, 19, NAVY, True, 24)
 box(504, 214, 452, 116, "#FFFFFF", stroke="#D8E4EB")
 text(522, 240, "REAL DATA / EASY ACCESS", 13, TEAL, True)
-text(522, 270, "3,143 daily Delhi records", 23, NAVY, True)
-text(522, 296, "May 2015 - Dec 2023 / CPCB bulletin compilation", 14, MUTED)
-text(522, 316, "Public CSV / no account or API key", 14, MUTED)
+text(522, 270, "3,143 training observations", 23, NAVY, True)
+text(522, 296, "Training: 2015-2023 / fresh CPCB daily bulletins", 14, MUTED)
+text(522, 316, "Original MAE: forest 31.09 / persistence 31.61", 14, MUTED)
 
 section(371, "01", "ML PIPELINE + CI/CD", "Poster criterion 1 / CO4")
 first = [("01", "CPCB CSV", "Version + validate"), ("02", "Lag features", "Seven prior AQI days"),
@@ -144,7 +144,7 @@ text(60, 1074, "Cloud Logging: latency + failures. Drift prompts review; models 
 section(1137, "04", "GOVERNANCE + RESPONSIBLE AI", "Poster criterion 2 / CO4")
 governance = [
     ("01", "VERSIONING", "Data SHA-256, Git SHA, MLflow run ID and container digest."),
-    ("02", "AUDIT TRAIL", "Metrics, timestamp, named approver and deployed revision recorded."),
+    ("02", "AUDIT TRAIL", "Metrics, timestamp, release actor and deployed revision recorded."),
     ("03", "COMPLIANCE", "Public aggregate data; source attribution; IAM; log retention policy."),
     ("04", "BIAS MITIGATION", "Report seasonal errors; inspect extreme-AQI failures; disclose coverage gaps."),
 ]
@@ -175,9 +175,9 @@ for i, (number, title, description) in enumerate(governance):
     paragraph(x + 14, 1230, description, 186, 15, INK, leading=20)
 
 line(44, 1320, 956, 1320, "#CCDCE5", 1)
-text(44, 1343, "DEMO: historical replay > forecast > inject drift > review > deploy > rollback", 15, NAVY, True)
-text(44, 1366, "Scope: city-level historical backtesting. Live forecasts need fresh inputs; no health or accuracy guarantees.", 12, MUTED)
-text(44, 1387, "Data: UrbanEmissions / CPCB bulletins (Zenodo 11146316). Architecture: Cloud Run + MLflow documentation.", 11, MUTED)
+text(44, 1343, "VERIFIED: GitHub CI/CD > private Cloud Run > smoke test > rollback + restore", 15, NAVY, True)
+text(44, 1366, "2025 backtest MAE: forest 30.04 / persistence 29.68. Experimental forecasts; no accuracy guarantee.", 12, MUTED)
+text(44, 1387, "Training: UrbanEmissions / CPCB. Live: official CPCB PDFs. Mumbai / OIDC / versioned artifacts.", 11, MUTED)
 
 c.showPage()
 c.save()

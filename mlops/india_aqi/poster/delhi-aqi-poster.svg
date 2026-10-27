@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="297mm" height="420mm" viewBox="0 0 1000 1414">
 <rect x="0" y="0" width="1000" height="1414" rx="0" fill="#F7FAFC" stroke="#F7FAFC"/>
 <rect x="0" y="0" width="1000" height="193" rx="0" fill="#15283E" stroke="#15283E"/>
-<text x="44" y="42" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="700" fill="#9EE0E1">MLOps PROJECT  /  INDIA  /  DESIGN POSTER</text>
+<text x="44" y="42" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="700" fill="#9EE0E1">MLOps PROJECT  /  INDIA  /  DEPLOYED 27 OCT 2026</text>
 <text x="44" y="101" font-family="Arial,Helvetica,sans-serif" font-size="53" font-weight="700" fill="#FFFFFF">DELHI AQI</text>
 <text x="44" y="157" font-family="Arial,Helvetica,sans-serif" font-size="53" font-weight="700" fill="#FFFFFF">FORECASTING</text>
 <text x="635" y="85" font-family="Arial,Helvetica,sans-serif" font-size="22" font-weight="700" fill="#FFFFFF">Tomorrow&#x27;s air quality.</text>
@@ -14,9 +14,9 @@
 <text x="62" y="317" font-family="Arial,Helvetica,sans-serif" font-size="19" font-weight="700" fill="#15283E">trends.</text>
 <rect x="504" y="214" width="452" height="116" rx="12" fill="#FFFFFF" stroke="#D8E4EB"/>
 <text x="522" y="240" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="700" fill="#087F8C">REAL DATA / EASY ACCESS</text>
-<text x="522" y="270" font-family="Arial,Helvetica,sans-serif" font-size="23" font-weight="700" fill="#15283E">3,143 daily Delhi records</text>
-<text x="522" y="296" font-family="Arial,Helvetica,sans-serif" font-size="14" font-weight="400" fill="#51677B">May 2015 - Dec 2023 / CPCB bulletin compilation</text>
-<text x="522" y="316" font-family="Arial,Helvetica,sans-serif" font-size="14" font-weight="400" fill="#51677B">Public CSV / no account or API key</text>
+<text x="522" y="270" font-family="Arial,Helvetica,sans-serif" font-size="23" font-weight="700" fill="#15283E">3,143 training observations</text>
+<text x="522" y="296" font-family="Arial,Helvetica,sans-serif" font-size="14" font-weight="400" fill="#51677B">Training: 2015-2023 / fresh CPCB daily bulletins</text>
+<text x="522" y="316" font-family="Arial,Helvetica,sans-serif" font-size="14" font-weight="400" fill="#51677B">Original MAE: forest 31.09 / persistence 31.61</text>
 <rect x="44" y="344" width="44" height="38" rx="8" fill="#087F8C" stroke="#087F8C"/>
 <text x="53" y="371" font-family="Arial,Helvetica,sans-serif" font-size="21" font-weight="700" fill="#FFFFFF">01</text>
 <text x="103" y="371" font-family="Arial,Helvetica,sans-serif" font-size="23" font-weight="700" fill="#15283E">ML PIPELINE + CI/CD</text>
@@ -164,9 +164,9 @@
 <line x1="301" y1="1199" x2="312" y2="1199" stroke="#FFFFFF" stroke-width="1.8"/>
 <circle cx="296" cy="1199" r="1.5" fill="#FFFFFF"/>
 <text x="326" y="1198" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="700" fill="#087F8C">AUDIT TRAIL</text>
-<text x="290" y="1230" font-family="Arial,Helvetica,sans-serif" font-size="15" font-weight="400" fill="#24384D">Metrics, timestamp, named</text>
-<text x="290" y="1250" font-family="Arial,Helvetica,sans-serif" font-size="15" font-weight="400" fill="#24384D">approver and deployed</text>
-<text x="290" y="1270" font-family="Arial,Helvetica,sans-serif" font-size="15" font-weight="400" fill="#24384D">revision recorded.</text>
+<text x="290" y="1230" font-family="Arial,Helvetica,sans-serif" font-size="15" font-weight="400" fill="#24384D">Metrics, timestamp, release</text>
+<text x="290" y="1250" font-family="Arial,Helvetica,sans-serif" font-size="15" font-weight="400" fill="#24384D">actor and deployed revision</text>
+<text x="290" y="1270" font-family="Arial,Helvetica,sans-serif" font-size="15" font-weight="400" fill="#24384D">recorded.</text>
 <rect x="508" y="1164" width="216" height="131" rx="12" fill="#FFFFFF" stroke="#D8E4EB"/>
 <rect x="522" y="1178" width="28" height="28" rx="5" fill="#087F8C" stroke="#087F8C"/>
 <line x1="536" y1="1183" x2="545" y2="1187" stroke="#FFFFFF" stroke-width="1.8"/>
@@ -193,7 +193,7 @@
 <text x="754" y="1270" font-family="Arial,Helvetica,sans-serif" font-size="15" font-weight="400" fill="#24384D">failures; disclose coverage</text>
 <text x="754" y="1290" font-family="Arial,Helvetica,sans-serif" font-size="15" font-weight="400" fill="#24384D">gaps.</text>
 <line x1="44" y1="1320" x2="956" y2="1320" stroke="#CCDCE5" stroke-width="1"/>
-<text x="44" y="1343" font-family="Arial,Helvetica,sans-serif" font-size="15" font-weight="700" fill="#15283E">DEMO: historical replay &gt; forecast &gt; inject drift &gt; review &gt; deploy &gt; rollback</text>
-<text x="44" y="1366" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="400" fill="#51677B">Scope: city-level historical backtesting. Live forecasts need fresh inputs; no health or accuracy guarantees.</text>
-<text x="44" y="1387" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="400" fill="#51677B">Data: UrbanEmissions / CPCB bulletins (Zenodo 11146316). Architecture: Cloud Run + MLflow documentation.</text>
+<text x="44" y="1343" font-family="Arial,Helvetica,sans-serif" font-size="15" font-weight="700" fill="#15283E">VERIFIED: GitHub CI/CD &gt; private Cloud Run &gt; smoke test &gt; rollback + restore</text>
+<text x="44" y="1366" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="400" fill="#51677B">2025 backtest MAE: forest 30.04 / persistence 29.68. Experimental forecasts; no accuracy guarantee.</text>
+<text x="44" y="1387" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="400" fill="#51677B">Training: UrbanEmissions / CPCB. Live: official CPCB PDFs. Mumbai / OIDC / versioned artifacts.</text>
 </svg>

@@ -1,0 +1,212 @@
+date,City,No. Stations,Air Quality,Index Value,Prominent Pollutant
+2025-01-02,Delhi,38,Very Poor,318,PM2.5
+2025-01-03,Delhi,33,Very Poor,371,PM2.5
+2025-01-04,Delhi,34,Very Poor,378,PM2.5
+2025-01-05,Delhi,35,Very Poor,339,PM2.5
+2025-01-06,Delhi,34,Very Poor,335,PM2.5
+2025-01-07,Delhi,34,Poor,296,PM2.5
+2025-01-08,Delhi,28,Poor,297,PM2.5
+2025-01-09,Delhi,28,Very Poor,357,PM2.5
+2025-01-10,Delhi,29,Very Poor,397,PM2.5
+2025-01-11,Delhi,31,Very Poor,327,PM2.5
+2025-01-12,Delhi,36,Poor,278,PM2.5
+2025-01-13,Delhi,35,Poor,248,PM2.5
+2025-01-14,Delhi,35,Poor,275,PM2.5
+2025-01-15,Delhi,35,Very Poor,386,PM2.5
+2025-01-16,Delhi,37,Very Poor,302,PM2.5
+2025-01-17,Delhi,36,Poor,289,PM2.5
+2025-01-18,Delhi,38,Poor,255,PM2.5
+2025-01-19,Delhi,31,Very Poor,368,PM2.5
+2025-01-20,Delhi,31,Very Poor,314,PM2.5
+2025-01-21,Delhi,30,Poor,289,PM2.5
+2025-01-22,Delhi,29,Poor,260,PM2.5
+2025-01-23,Delhi,31,Poor,257,PM2.5
+2025-01-24,Delhi,30,Moderate,199,PM2.5
+2025-01-25,Delhi,31,Moderate,174,"O3, PM2.5"
+2025-01-26,Delhi,27,Poor,216,PM2.5
+2025-01-27,Delhi,29,Poor,268,PM2.5
+2025-01-28,Delhi,31,Poor,276,PM2.5
+2025-01-29,Delhi,31,Very Poor,365,PM2.5
+2025-01-30,Delhi,31,Very Poor,363,"PM10, PM2.5"
+2025-01-31,Delhi,31,Very Poor,351,"PM10, PM2.5"
+2025-02-01,Delhi,30,Very Poor,355,PM2.5
+2025-02-02,Delhi,32,Very Poor,326,"PM10, PM2.5"
+2025-02-03,Delhi,31,Poor,286,PM2.5
+2025-02-04,Delhi,33,Poor,264,PM2.5
+2025-02-05,Delhi,37,Poor,284,PM2.5
+2025-02-06,Delhi,36,Poor,210,PM2.5
+2025-02-07,Delhi,35,Moderate,156,PM2.5
+2025-02-08,Delhi,39,Moderate,152,"O3, PM10, PM2.5"
+2025-02-09,Delhi,37,Poor,227,PM2.5
+2025-02-10,Delhi,37,Poor,271,"PM10, PM2.5"
+2025-02-11,Delhi,35,Poor,293,PM10
+2025-02-12,Delhi,38,Poor,212,PM10
+2025-02-13,Delhi,36,Moderate,134,"O3, PM10"
+2025-02-14,Delhi,38,Moderate,131,"O3, PM10"
+2025-02-15,Delhi,37,Moderate,191,O3
+2025-02-16,Delhi,36,Poor,294,PM10
+2025-02-17,Delhi,37,Poor,231,"O3, PM2.5"
+2025-02-18,Delhi,37,Poor,209,"PM10, PM2.5"
+2025-02-19,Delhi,37,Moderate,180,"O3, PM10"
+2025-02-20,Delhi,36,Moderate,160,"PM10, PM2.5"
+2025-02-21,Delhi,36,Moderate,158,"O3, PM2.5"
+2025-02-22,Delhi,37,Moderate,155,PM2.5
+2025-02-23,Delhi,36,Moderate,144,PM2.5
+2025-02-24,Delhi,36,Moderate,186,"O3, PM2.5"
+2025-02-25,Delhi,36,Poor,208,"O3, PM2.5"
+2025-02-26,Delhi,37,Poor,247,PM10
+2025-02-27,Delhi,35,Poor,215,"PM10, PM2.5"
+2025-02-28,Delhi,37,Moderate,121,"PM10, PM2.5"
+2025-03-01,Delhi,35,Moderate,126,"O3, PM10, PM2.5"
+2025-03-02,Delhi,35,Moderate,125,PM2.5
+2025-03-03,Delhi,36,Moderate,156,O3
+2025-03-04,Delhi,36,Moderate,148,"PM10, PM2.5"
+2025-03-05,Delhi,38,Moderate,119,"NO2, PM10, PM2.5"
+2025-03-06,Delhi,39,Moderate,124,"O3, PM2.5"
+2025-03-07,Delhi,39,Poor,202,"PM10, PM2.5"
+2025-03-08,Delhi,38,Moderate,158,"O3, PM10, PM2.5"
+2025-03-09,Delhi,37,Poor,209,"O3, PM10"
+2025-03-10,Delhi,37,Moderate,197,"PM10, PM2.5"
+2025-03-11,Delhi,39,Poor,262,"PM10, PM2.5"
+2025-03-12,Delhi,38,Poor,228,"PM10, PM2.5"
+2025-03-13,Delhi,36,Moderate,179,"O3, PM10"
+2025-03-14,Delhi,39,Moderate,198,"O3, PM2.5"
+2025-03-15,Delhi,38,Satisfactory,85,O3
+2025-03-16,Delhi,39,Satisfactory,99,"O3, PM2.5"
+2025-03-17,Delhi,39,Moderate,108,"O3, PM10"
+2025-03-18,Delhi,35,Moderate,145,"O3, PM2.5"
+2025-03-19,Delhi,37,Moderate,160,"O3, PM10, PM2.5"
+2025-03-20,Delhi,39,Moderate,156,"PM10, PM2.5"
+2025-03-21,Delhi,39,Moderate,144,"PM10, PM2.5"
+2025-03-22,Delhi,38,Moderate,161,"PM10, PM2.5"
+2025-03-23,Delhi,38,Moderate,194,O3
+2025-03-24,Delhi,37,Poor,206,O3
+2025-03-25,Delhi,39,Poor,234,O3
+2025-03-26,Delhi,38,Poor,231,PM10
+2025-03-27,Delhi,38,Poor,259,PM10
+2025-03-28,Delhi,37,Poor,205,PM10
+2025-03-29,Delhi,38,Moderate,153,PM10
+2025-03-30,Delhi,37,Moderate,138,"O3, PM10"
+2025-03-31,Delhi,31,Moderate,160,"PM10, PM2.5"
+2025-04-01,Delhi,31,Moderate,144,"PM10, PM2.5"
+2025-04-02,Delhi,30,Poor,217,"PM10, PM2.5"
+2025-04-03,Delhi,30,Poor,217,"PM10, PM2.5"
+2025-04-04,Delhi,38,Poor,219,"PM10, PM2.5"
+2025-04-05,Delhi,35,Moderate,163,"O3, PM10, PM2.5"
+2025-04-06,Delhi,36,Poor,209,"O3, PM10"
+2025-04-07,Delhi,34,Poor,261,"PM10, PM2.5"
+2025-04-08,Delhi,36,Poor,243,"O3, PM10, PM2.5"
+2025-04-09,Delhi,35,Poor,246,"O3, PM10, PM2.5"
+2025-04-10,Delhi,38,Poor,256,PM10
+2025-04-11,Delhi,38,Moderate,164,O3
+2025-04-12,Delhi,37,Moderate,166,O3
+2025-04-13,Delhi,37,Moderate,178,O3
+2025-04-14,Delhi,36,Moderate,194,"O3, PM10"
+2025-04-15,Delhi,39,Moderate,180,O3
+2025-04-16,Delhi,37,Poor,220,O3
+2025-04-17,Delhi,36,Poor,204,O3
+2025-04-18,Delhi,37,Poor,219,"O3, PM10"
+2025-04-19,Delhi,38,Moderate,165,"PM10, PM2.5"
+2025-04-20,Delhi,36,Moderate,140,"O3, PM10"
+2025-04-21,Delhi,38,Poor,205,PM10
+2025-04-22,Delhi,37,Poor,227,PM10
+2025-04-23,Delhi,35,Poor,224,PM10
+2025-04-24,Delhi,35,Poor,227,PM10
+2025-04-25,Delhi,35,Poor,258,PM10
+2025-04-26,Delhi,37,Poor,247,PM10
+2025-04-27,Delhi,35,Poor,246,PM10
+2025-04-28,Delhi,33,Poor,266,PM10
+2025-04-29,Delhi,36,Poor,209,PM10
+2025-04-30,Delhi,36,Moderate,198,O3
+2025-05-01,Delhi,36,Moderate,184,O3
+2025-05-02,Delhi,37,Moderate,145,"O3, PM10"
+2025-05-03,Delhi,38,Moderate,180,"PM10, PM2.5"
+2025-05-04,Delhi,38,Poor,232,PM10
+2025-05-05,Delhi,37,Moderate,119,"CO, PM10"
+2025-05-06,Delhi,37,Moderate,141,O3
+2025-05-07,Delhi,37,Moderate,153,O3
+2025-05-08,Delhi,35,Moderate,169,"O3, PM10"
+2025-05-09,Delhi,38,Moderate,151,"PM10, PM2.5"
+2025-05-10,Delhi,39,Moderate,189,"O3, PM10, PM2.5"
+2025-05-11,Delhi,37,Moderate,158,O3
+2025-05-12,Delhi,36,Moderate,162,O3
+2025-05-13,Delhi,38,Moderate,141,"NO2, O3, PM10"
+2025-05-14,Delhi,38,Moderate,135,"O3, PM10"
+2025-05-15,Delhi,36,Poor,292,"PM10, PM2.5"
+2025-05-16,Delhi,38,Poor,278,PM10
+2025-05-17,Delhi,37,Moderate,168,"O3, PM10"
+2025-05-18,Delhi,36,Moderate,179,O3
+2025-05-19,Delhi,35,Poor,201,O3
+2025-05-20,Delhi,37,Poor,204,"O3, PM10"
+2025-05-21,Delhi,37,Poor,213,"O3, PM10"
+2025-05-22,Delhi,33,Moderate,119,O3
+2025-05-23,Delhi,38,Moderate,129,O3
+2025-05-24,Delhi,39,Moderate,141,O3
+2025-05-25,Delhi,31,Moderate,105,PM2.5
+2025-05-26,Delhi,33,Moderate,105,"O3, PM10"
+2025-05-27,Delhi,38,Moderate,133,O3
+2025-05-28,Delhi,39,Moderate,151,O3
+2025-05-29,Delhi,37,Moderate,171,O3
+2025-05-30,Delhi,38,Moderate,167,"PM10, PM2.5"
+2025-05-31,Delhi,38,Poor,241,"O3, PM10, PM2.5"
+2025-06-01,Delhi,33,Moderate,197,"PM10, PM2.5"
+2025-06-02,Delhi,32,Moderate,158,O3
+2025-06-03,Delhi,37,Moderate,143,"O3, PM10, PM2.5"
+2025-06-04,Delhi,36,Moderate,187,"PM10, PM2.5"
+2025-06-05,Delhi,38,Poor,203,O3
+2025-06-06,Delhi,39,Moderate,161,O3
+2025-06-07,Delhi,36,Poor,209,O3
+2025-06-08,Delhi,34,Moderate,198,"O3, PM10"
+2025-06-09,Delhi,33,Poor,235,PM10
+2025-06-10,Delhi,36,Poor,215,PM10
+2025-06-11,Delhi,38,Poor,245,"O3, PM10"
+2025-06-12,Delhi,38,Moderate,195,O3
+2025-06-13,Delhi,38,Moderate,187,PM10
+2025-06-14,Delhi,37,Moderate,156,O3
+2025-06-15,Delhi,32,Moderate,140,PM10
+2025-06-16,Delhi,36,Moderate,111,"O3, PM10, PM2.5"
+2025-06-17,Delhi,38,Moderate,104,"O3, PM10"
+2025-06-18,Delhi,35,Satisfactory,81,"O3, PM10"
+2025-06-19,Delhi,38,Satisfactory,89,"PM10, PM2.5"
+2025-06-20,Delhi,38,Satisfactory,75,"CO, PM10"
+2025-06-21,Delhi,38,Satisfactory,85,"O3, PM10"
+2025-06-22,Delhi,33,Satisfactory,92,O3
+2025-06-23,Delhi,33,Moderate,112,"O3, PM10, PM2.5"
+2025-06-24,Delhi,37,Satisfactory,95,PM10
+2025-06-25,Delhi,36,Moderate,132,"PM10, PM2.5"
+2025-06-26,Delhi,35,Satisfactory,95,"PM10, PM2.5"
+2025-06-27,Delhi,36,Satisfactory,76,PM10
+2025-06-28,Delhi,35,Satisfactory,97,"CO, PM10"
+2025-06-29,Delhi,36,Satisfactory,83,"CO, PM10, PM2.5"
+2025-06-30,Delhi,34,Satisfactory,65,PM10
+2025-07-01,Delhi,36,Satisfactory,83,"PM10, PM2.5"
+2025-07-02,Delhi,36,Satisfactory,83,"PM10, PM2.5"
+2025-07-03,Delhi,36,Satisfactory,72,PM10
+2025-07-04,Delhi,38,Satisfactory,78,"O3, PM10, PM2.5"
+2025-07-05,Delhi,35,Satisfactory,89,"O3, PM10"
+2025-07-06,Delhi,34,Satisfactory,75,PM10
+2025-07-07,Delhi,36,Satisfactory,85,O3
+2025-07-08,Delhi,34,Satisfactory,98,"O3, PM10"
+2025-07-09,Delhi,37,Satisfactory,81,"CO, O3, PM10"
+2025-07-10,Delhi,29,Satisfactory,59,"CO, NO2"
+2025-07-11,Delhi,33,Satisfactory,79,PM10
+2025-07-12,Delhi,36,Moderate,105,"O3, PM10"
+2025-07-13,Delhi,35,Satisfactory,79,"O3, PM10"
+2025-07-14,Delhi,34,Satisfactory,59,"CO, PM10"
+2025-07-15,Delhi,35,Satisfactory,51,"CO, PM10"
+2025-07-16,Delhi,34,Satisfactory,67,PM10
+2025-07-17,Delhi,37,Satisfactory,70,PM10
+2025-07-18,Delhi,38,Satisfactory,60,"CO, PM10"
+2025-07-19,Delhi,38,Satisfactory,54,"CO, NO2, PM10"
+2025-07-20,Delhi,38,Satisfactory,75,"CO, PM10"
+2025-07-21,Delhi,35,Satisfactory,93,"O3, PM10"
+2025-07-22,Delhi,39,Satisfactory,88,"PM10, PM2.5"
+2025-07-23,Delhi,39,Satisfactory,67,PM10
+2025-07-24,Delhi,38,Satisfactory,91,"O3, PM10"
+2025-07-25,Delhi,39,Moderate,136,"PM10, PM2.5"
+2025-07-26,Delhi,38,Satisfactory,84,"O3, PM10"
+2025-07-27,Delhi,38,Satisfactory,85,PM10
+2025-07-28,Delhi,34,Satisfactory,86,O3
+2025-07-29,Delhi,36,Satisfactory,72,"PM10, PM2.5"
+2025-07-30,Delhi,36,Satisfactory,66,"PM10, PM2.5"
+2025-07-31,Delhi,33,Satisfactory,59,"O3, PM10"

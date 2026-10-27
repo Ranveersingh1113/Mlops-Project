@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
-for name in GCP_PROJECT_ID GCP_REGION GCP_ARTIFACT_REPO GCP_BUCKET GCP_DEPLOY_SA GCP_RUNTIME_SA GCP_SERVICE GITHUB_SHA GITHUB_RUN_NUMBER GITHUB_ACTOR; do
+for name in GCP_PROJECT_ID GCP_REGION GCP_ARTIFACT_REPO GCP_BUCKET GCP_DEPLOY_SA GCP_RUNTIME_SA GCP_SERVICE GITHUB_SHA GITHUB_RUN_NUMBER GITHUB_ACTOR GITHUB_TRIGGERING_ACTOR GITHUB_RUN_ATTEMPT; do
   if [[ -z "${!name:-}" ]]; then echo "Missing configuration: $name" >&2; exit 1; fi
 done
 RUN_ID=$(python -c 'import json; print(json.load(open("artifacts/latest.json"))["run_id"])')
@@ -16,6 +16,7 @@ export IMAGE_DIGEST
 test -n "$IMAGE_DIGEST"
 gcloud storage cp "artifacts/$RUN_ID/"* "gs://${GCP_BUCKET}/runs/${RUN_ID}/"
 gcloud storage cp data/delhi.csv "gs://${GCP_BUCKET}/data/${RUN_ID}.csv"
+gcloud storage cp artifacts/model-comparison.json "gs://${GCP_BUCKET}/comparisons/${RUN_ID}.json"
 EXISTING=$(gcloud run services list --region "$GCP_REGION" --filter="metadata.name=${GCP_SERVICE}" --format='value(metadata.name)')
 if [[ -n "$EXISTING" ]]; then
   gcloud run services describe "$GCP_SERVICE" --region "$GCP_REGION" --format=json > before-rollout.json
@@ -41,7 +42,7 @@ python -c 'import json,os; r=json.load(open("smoke-result.json")); assert r["sta
 python - <<'PY'
 import json, os
 from datetime import datetime, timezone
-record = {key: os.environ[key] for key in ("GITHUB_ACTOR", "GITHUB_SHA", "GITHUB_RUN_NUMBER", "RUN_ID", "IMAGE_DIGEST", "REVISION", "SERVICE_URL")}
+record = {key: os.environ[key] for key in ("GITHUB_ACTOR", "GITHUB_TRIGGERING_ACTOR", "GITHUB_RUN_ATTEMPT", "GITHUB_SHA", "GITHUB_RUN_NUMBER", "RUN_ID", "IMAGE_DIGEST", "REVISION", "SERVICE_URL")}
 record["approved_at"] = datetime.now(timezone.utc).isoformat()
 record["approval"] = "manual workflow dispatch on default branch; GitHub environment aqi-demo"
 record["previous_traffic"] = json.load(open("before-rollout.json"))["status"].get("traffic", [])
