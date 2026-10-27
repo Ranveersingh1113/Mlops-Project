@@ -34,6 +34,8 @@ Configure [GitHub Workload Identity Federation](https://github.com/google-github
 
 Create GitHub environment `aqi-demo`, require reviewers, restrict it to default branch. Set its variables: `GCP_PROJECT_ID`, `GCP_REGION`, `GCP_ARTIFACT_REPO`, `GCP_BUCKET`, `GCP_DEPLOY_SA`, `GCP_RUNTIME_SA`, `GCP_WIF_PROVIDER`. Workflow checks the repository's configured default branch. Protect workflow changes with code review.
 
+The current private repository's GitHub plan rejected required reviewers (HTTP 422). Deployment therefore uses explicit manual workflow dispatch on the default branch, with OIDC restricted to this repository and branch. There is no separate reviewer gate on this plan; the audit records dispatch without claiming reviewer approval. Upgrade the plan or configure supported protection before requiring independent approval.
+
 ## Release
 
 Manually dispatch **Delhi AQI MLOps**, choose `deploy=true`, then approve the `aqi-demo` environment. Failed checks prevent deployment. Candidate is deployed privately with a tagged URL, no intended production traffic; health smoke-test confirms exact run ID. The script records approver and prior traffic in versioned Cloud Storage before switching to the candidate revision. First deployment has no previous production revision; private access limits exposure during bootstrap. Monitor CLI and training do not deploy.

@@ -40,7 +40,7 @@ import json, os
 from datetime import datetime, timezone
 record = {key: os.environ[key] for key in ("GITHUB_ACTOR", "GITHUB_SHA", "GITHUB_RUN_NUMBER", "RUN_ID", "IMAGE_DIGEST", "REVISION", "SERVICE_URL")}
 record["approved_at"] = datetime.now(timezone.utc).isoformat()
-record["approval"] = "manual workflow dispatch + protected GitHub environment"
+record["approval"] = "manual workflow dispatch on default branch; GitHub environment aqi-demo"
 record["previous_traffic"] = json.load(open("before-rollout.json"))["status"].get("traffic", [])
 record["status"] = "approved_switch_pending"
 json.dump(record, open("deployment-audit.json", "w"), indent=2)
